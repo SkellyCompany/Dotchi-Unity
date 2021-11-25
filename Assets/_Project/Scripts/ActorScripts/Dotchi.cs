@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Dotchi : MonoBehaviour
 {
-	//[SerializeField] private DochiAnimator _dochiAnimator = default;
+	[SerializeField] private DotchiAnimator _dotchiAnimator = default;
 	private Rigidbody2D _rigidbody;
 
 	public Vector2 MovementInput { get; set; }
@@ -25,11 +23,11 @@ public class Dotchi : MonoBehaviour
 		_rigidbody.velocity = MovementInput * 2;
 		if (_rigidbody.velocity == Vector2.zero)
 		{
-			//_dochiAnimator.IdleAnimation();
+			_dotchiAnimator.IdleAnimation();
 		}
 		else
 		{
-			//_dochiAnimator.RunAnimation();
+			_dotchiAnimator.WalkAnimation();
 		}
 	}
 }

@@ -5,6 +5,24 @@ TextureImporter:
   - first:
       213: -4181668644060100870
     second: Dotchi_0
+  - first:
+      213: 726175757432025036
+    second: Dotchi_1
+  - first:
+      213: 6519190265243768667
+    second: Dotchi_2
+  - first:
+      213: -3698084845677062363
+    second: Dotchi_3
+  - first:
+      213: -399787109483336849
+    second: Dotchi_4
+  - first:
+      213: -2108970249735372549
+    second: Dotchi_5
+  - first:
+      213: 3591587237961845464
+    second: Dotchi_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -110,11 +128,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 5
+        y: 26
         width: 17
         height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -122,6 +140,132 @@ TextureImporter:
       bones: []
       spriteID: af6886e068ab7f5c0800000000000000
       internalID: -4181668644060100870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_1
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 26
+        width: 17
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccf6c320105e31a00800000000000000
+      internalID: 726175757432025036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_2
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 26
+        width: 17
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b571a0f8101d87a50800000000000000
+      internalID: 6519190265243768667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 17
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527d9281d63cdacc0800000000000000
+      internalID: -3698084845677062363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_4
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 2
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b2779fdbba37af0800000000000000
+      internalID: -399787109483336849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_5
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2
+        width: 17
+        height: 20
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf008ae4bbe6bb2e0800000000000000
+      internalID: -2108970249735372549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_6
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 2
+        width: 17
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8daca8a5091e7d130800000000000000
+      internalID: 3591587237961845464
       vertices: []
       indices: 
       edges: []

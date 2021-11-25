@@ -62,7 +62,7 @@ public class DebugMenu : BaseMenu
 
 	public void SetLight(float value)
 	{
-		//_worldStats.SetTemperature(value);
+		_worldStats.SetLight(value);
 		_lightText.text = $"Light: {Mathf.Round(value)}";
 	}
 
