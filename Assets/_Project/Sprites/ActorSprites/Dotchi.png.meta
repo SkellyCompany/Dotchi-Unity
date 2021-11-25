@@ -23,6 +23,39 @@ TextureImporter:
   - first:
       213: 3591587237961845464
     second: Dotchi_6
+  - first:
+      213: 6995059409179307105
+    second: Dotchi_7
+  - first:
+      213: -2085902030778803605
+    second: Dotchi_8
+  - first:
+      213: -2492823015141175506
+    second: Dotchi_9
+  - first:
+      213: -2560535249297345220
+    second: Dotchi_10
+  - first:
+      213: -8136647567282924443
+    second: Dotchi_10
+  - first:
+      213: 8930796436368078718
+    second: Dotchi_11
+  - first:
+      213: -2509850640991384423
+    second: Dotchi_13
+  - first:
+      213: 356822270320545510
+    second: Dotchi_14
+  - first:
+      213: -7774171204863706512
+    second: Dotchi_15
+  - first:
+      213: 7129605106298762847
+    second: Dotchi_16
+  - first:
+      213: -6000903105373554811
+    second: Dotchi_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -128,7 +161,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 26
+        y: 57
         width: 17
         height: 20
       alignment: 7
@@ -149,7 +182,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 28
-        y: 26
+        y: 57
         width: 17
         height: 19
       alignment: 7
@@ -170,7 +203,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 52
-        y: 26
+        y: 57
         width: 17
         height: 18
       alignment: 7
@@ -191,7 +224,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 2
+        y: 33
         width: 17
         height: 20
       alignment: 7
@@ -212,7 +245,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 28
-        y: 2
+        y: 33
         width: 17
         height: 21
       alignment: 7
@@ -233,7 +266,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 2
+        y: 33
         width: 17
         height: 20
       alignment: 7
@@ -254,7 +287,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 71
-        y: 2
+        y: 33
         width: 17
         height: 21
       alignment: 7
@@ -266,6 +299,216 @@ TextureImporter:
       bones: []
       spriteID: 8daca8a5091e7d130800000000000000
       internalID: 3591587237961845464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_7
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 2
+        width: 17
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ce2e2a871731160800000000000000
+      internalID: 6995059409179307105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_8
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 2
+        width: 17
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ad92397236d03e0800000000000000
+      internalID: -2085902030778803605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_9
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 2
+        width: 21
+        height: 26
+      alignment: 9
+      pivot: {x: 0.595, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2f879edca6b76dd0800000000000000
+      internalID: -2492823015141175506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_10
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 2
+        width: 22
+        height: 26
+      alignment: 9
+      pivot: {x: 0.615, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5641e89b522d41f80800000000000000
+      internalID: -8136647567282924443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_11
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 2
+        width: 20
+        height: 26
+      alignment: 9
+      pivot: {x: 0.575, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e773b0f9a0090fb70800000000000000
+      internalID: 8930796436368078718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_13
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 2
+        width: 17
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c0c68c3283b2dd0800000000000000
+      internalID: -2509850640991384423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_14
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 2
+        width: 17
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee876ed6ffa3f400800000000000000
+      internalID: 356822270320545510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_15
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 2
+        width: 21
+        height: 26
+      alignment: 9
+      pivot: {x: 0.595, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a370f7a789c1490800000000000000
+      internalID: -7774171204863706512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_16
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 2
+        width: 22
+        height: 26
+      alignment: 9
+      pivot: {x: 0.615, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56bfb5e11271f260800000000000000
+      internalID: 7129605106298762847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dotchi_17
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 2
+        width: 20
+        height: 26
+      alignment: 9
+      pivot: {x: 0.575, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587bba87b6288bca0800000000000000
+      internalID: -6000903105373554811
       vertices: []
       indices: 
       edges: []

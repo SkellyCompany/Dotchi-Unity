@@ -18,7 +18,7 @@ public class DotchiStatsUI : MonoBehaviour
         _happinessSlider.value = value;
     }
 
-    public void SetSleepyness(float value)
+    public void SetSleepiness(float value)
     {
         _sleepinessSlider.value = value;
     }

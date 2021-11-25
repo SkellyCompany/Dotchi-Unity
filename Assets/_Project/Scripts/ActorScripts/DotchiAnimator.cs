@@ -19,4 +19,14 @@ public class DotchiAnimator : MonoBehaviour
 	{
 		_animator.SetTrigger("Walk");
 	}
+
+	public void SleepAnimation()
+	{
+		_animator.SetTrigger("Sleep");
+	}
+
+	public void WakeUpAnimation()
+	{
+		_animator.SetTrigger("WakeUp");
+	}
 }

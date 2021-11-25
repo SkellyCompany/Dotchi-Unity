@@ -7,7 +7,7 @@ public class Dotchi : MonoBehaviour
 	private Rigidbody2D _rigidbody;
 	private int _hunger = 10;
 	private int _happiness = 10;
-	private int _sleepyness = 10;
+	private int _sleepiness = 10;
 	public Vector2 MovementInput { get; set; }
 
 
@@ -18,13 +18,23 @@ public class Dotchi : MonoBehaviour
 
 	void Start()
 	{
-		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "Hunger");
-		timedTask.finished += LoseHunger;
+		TimedTask timedTaskHunger = TimedTasksManager.Instance.StartTimedTask(3600, "LoseHunger");
+		timedTaskHunger.finished += LoseHunger;
+		TimedTask timedTaskSleepiness = TimedTasksManager.Instance.StartTimedTask(1600, "LoseSleepiness");
+		timedTaskSleepiness.finished += LoseSleepiness;
 	}
 
 	void Update()
 	{
 		Movement();
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			Sleep();
+		}
+		if (Input.GetKeyDown(KeyCode.W))
+		{
+			WakeUp();
+		}
 	}
 
 	private void Movement()
@@ -44,7 +54,34 @@ public class Dotchi : MonoBehaviour
 	{
 		_hunger--;
 		_dotchiStatsUI.SetHunger(_hunger);
-		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "Hunger");
+		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "LoseHunger");
 		timedTask.finished += LoseHunger;
+	}
+	private void LoseHappiness()
+	{
+		_happiness--;
+		_dotchiStatsUI.SetHappiness(_happiness);
+		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "LoseHappiness");
+		timedTask.finished += LoseHappiness;
+	}
+
+	private void LoseSleepiness()
+	{
+		_sleepiness--;
+		_dotchiStatsUI.SetSleepiness(_sleepiness);
+		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "LoseSleepiness");
+		timedTask.finished += LoseSleepiness;
+	}
+
+	private void Sleep()
+	{
+		_dotchiAnimator.SleepAnimation();
+		_rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+	}
+
+	private void WakeUp()
+	{
+		_dotchiAnimator.WakeUpAnimation();
+		_rigidbody.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
 	}
 }
