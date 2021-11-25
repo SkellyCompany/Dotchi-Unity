@@ -13,6 +13,6 @@ public class TimedTask
 	{
 		StartDate = DateTime.Now;
 		Time = seconds;
-		Name = name;
+		Name = name + "Task";
 	}
 }

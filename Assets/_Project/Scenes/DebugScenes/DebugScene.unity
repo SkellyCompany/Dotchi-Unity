@@ -746,7 +746,6 @@ GameObject:
   - component: {fileID: 487132067}
   - component: {fileID: 487132066}
   - component: {fileID: 487132064}
-  - component: {fileID: 487132065}
   m_Layer: 5
   m_Name: 'TimedTasksMenu_canvas '
   m_TagString: Untagged
@@ -787,39 +786,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startingOption: {fileID: 0}
---- !u!114 &487132065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487132062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d934fd054705f74ea444b1f779cbe2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioMixerGroup: {fileID: 3976621417299948276, guid: 37e1cd9c9cb5cd04b84c8b8502c44908, type: 2}
-  _sounds:
-  - source: {fileID: 0}
-    clip: {fileID: 8300000, guid: 8beac0f744c6ca245a2fcd1ed2f6dc2d, type: 3}
-    volume: 0.1
-    pitch: 1
-    name: Snakes
-    loop: 1
-    playOnAwake: 1
-    playOneInstanceAtATime: 0
-  - source: {fileID: 0}
-    clip: {fileID: 8300000, guid: acbe2e1fee21d2740af3cdc1b94c480a, type: 3}
-    volume: 1
-    pitch: 1
-    name: Click
-    loop: 0
-    playOnAwake: 0
-    playOneInstanceAtATime: 0
-  _sounds3D: []
-  _soundGroups: []
-  _soundGroups3D: []
 --- !u!95 &487132066
 Animator:
   serializedVersion: 3
@@ -1175,7 +1141,6 @@ GameObject:
   - component: {fileID: 734988904}
   - component: {fileID: 734988903}
   - component: {fileID: 734988901}
-  - component: {fileID: 734988902}
   m_Layer: 5
   m_Name: MeasurementsMenu_canvas
   m_TagString: Untagged
@@ -1216,39 +1181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startingOption: {fileID: 0}
---- !u!114 &734988902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734988899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d934fd054705f74ea444b1f779cbe2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioMixerGroup: {fileID: 3976621417299948276, guid: 37e1cd9c9cb5cd04b84c8b8502c44908, type: 2}
-  _sounds:
-  - source: {fileID: 0}
-    clip: {fileID: 8300000, guid: 8beac0f744c6ca245a2fcd1ed2f6dc2d, type: 3}
-    volume: 0.1
-    pitch: 1
-    name: Snakes
-    loop: 1
-    playOnAwake: 1
-    playOneInstanceAtATime: 0
-  - source: {fileID: 0}
-    clip: {fileID: 8300000, guid: acbe2e1fee21d2740af3cdc1b94c480a, type: 3}
-    volume: 1
-    pitch: 1
-    name: Click
-    loop: 0
-    playOnAwake: 0
-    playOneInstanceAtATime: 0
-  _sounds3D: []
-  _soundGroups: []
-  _soundGroups3D: []
 --- !u!95 &734988903
 Animator:
   serializedVersion: 3
@@ -2490,7 +2422,6 @@ GameObject:
   - component: {fileID: 1104404807}
   - component: {fileID: 1104404811}
   - component: {fileID: 1104404813}
-  - component: {fileID: 1104404812}
   m_Layer: 5
   m_Name: DebugMenu_canvas
   m_TagString: Untagged
@@ -2598,39 +2529,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1104404812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104404806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d934fd054705f74ea444b1f779cbe2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioMixerGroup: {fileID: 3976621417299948276, guid: 37e1cd9c9cb5cd04b84c8b8502c44908, type: 2}
-  _sounds:
-  - source: {fileID: 0}
-    clip: {fileID: 8300000, guid: 8beac0f744c6ca245a2fcd1ed2f6dc2d, type: 3}
-    volume: 0.1
-    pitch: 1
-    name: Snakes
-    loop: 1
-    playOnAwake: 1
-    playOneInstanceAtATime: 0
-  - source: {fileID: 0}
-    clip: {fileID: 8300000, guid: acbe2e1fee21d2740af3cdc1b94c480a, type: 3}
-    volume: 1
-    pitch: 1
-    name: Click
-    loop: 0
-    playOnAwake: 0
-    playOneInstanceAtATime: 0
-  _sounds3D: []
-  _soundGroups: []
-  _soundGroups3D: []
 --- !u!114 &1104404813
 MonoBehaviour:
   m_ObjectHideFlags: 0
