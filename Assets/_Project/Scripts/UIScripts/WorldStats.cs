@@ -14,4 +14,9 @@ public class WorldStats : MonoBehaviour
         _timeText.text = DateTime.Now.ToString("HH:mm");
         _dateText.text = DateTime.Now.ToString("dd/MM/yyyy");
     }
+
+    public void SetTemperature(float value)
+    {
+        _temperatureText.text = $"{Mathf.Round(value)}°C";
+    }
 }
