@@ -8,11 +8,13 @@ public class TimedTasksManager : Singleton<TimedTasksManager>
 	public Action taskFinished;
 
 
-	public void StartTimedTask(TimedTask timedTask)
+	public TimedTask StartTimedTask(float seconds, string name)
 	{
+		TimedTask timedTask = new TimedTask(seconds, name);
 		timedTask.finished += () => TimedTasks.RemoveAll(e => e == timedTask);
 		TimedTasks.Add(timedTask);
 		taskFinished?.Invoke();
+		return timedTask;
 	}
 
 	void Update()

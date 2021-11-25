@@ -29,7 +29,7 @@ MonoBehaviour:
       waitTime: 2
   - dialogueName: DotchiIntroduction3
     dialogueSentences:
-    - text: Your dotchi is ready to hatch.
+    - text: Your dotchi has hatched!
       waitTime: 2
-    - text: Simply tap it.
+    - text: Be sure to take care of it.
       waitTime: 2

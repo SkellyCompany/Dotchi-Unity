@@ -15,9 +15,8 @@ public class Egg : MonoBehaviour, IInteractable
 
 	public void StartHatching()
 	{
-		TimedTask timedTask = new TimedTask(180, "Egg");
+		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(180, "Egg");
 		timedTask.finished += ReadyToHatch;
-		TimedTasksManager.Instance.StartTimedTask(timedTask);
 	}
 
 	private void ReadyToHatch()
@@ -38,6 +37,7 @@ public class Egg : MonoBehaviour, IInteractable
 
 	public void HatchAnimationEvent()
 	{
+		_dialogue.StartDialogue("DotchiIntroduction3");
 		gameObject.SetActive(false);
 		_dotchi.gameObject.SetActive(true);
 	}
