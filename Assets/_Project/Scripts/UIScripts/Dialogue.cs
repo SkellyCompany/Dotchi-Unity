@@ -1,15 +1,15 @@
 using Demonics.Sounds;
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
     [SerializeField] private DialogueScriptSO[] _dialogueScripts = default;
+    [SerializeField] private TextMeshProUGUI _dialogueText = default;
     private Audio _audio;
     private DialogueScript _dialogueScript;
-    private int _currentDialogueSentence;
-    private bool _isDialogueRunning;
+    private int _currentDialogueSentenceIndex;
 
 
     void Awake()
@@ -17,26 +17,26 @@ public class Dialogue : MonoBehaviour
         _audio = GetComponent<Audio>();
     }
 
-    public virtual void StartDialogue(string node)
+    public void StartDialogue(string node)
     {
-        _isDialogueRunning = true;
-        _currentDialogueSentence = 0;
-        //_dialogueScript = _dialogueScriptSO.DialogueScript(node);
+        _currentDialogueSentenceIndex = 0;
+        _dialogueScript = _dialogueScripts[0].DialogueScript(node);
         StartCoroutine(WriteDialogueCoroutine());
     }
 
-    //protected virtual void NextSentence()
-    //{
-    //    _writingDialogueCoroutine = StartCoroutine(WriteDialogueCoroutine());
-    //}
+    private void NextSentence()
+	{
+        StartCoroutine(WriteDialogueCoroutine());
+    }
 
-    IEnumerator WriteDialogueCoroutine()
+	IEnumerator WriteDialogueCoroutine()
     {
-       // _dialogueText.text = "";
-        if (_currentDialogueSentence < _dialogueScript.dialogueSentences.Count)
+        _dialogueText.text = "";
+        _dialogueText.color = Color.white;
+        if (_currentDialogueSentenceIndex + 1 < _dialogueScript.dialogueSentences.Count)
         {
             yield return new WaitForSeconds(0.5f);
-            DialogueSentence dialogueSentence = _dialogueScript.dialogueSentences[_currentDialogueSentence];
+            DialogueSentence dialogueSentence = _dialogueScript.dialogueSentences[_currentDialogueSentenceIndex];
             for (int i = 0; i < dialogueSentence.text.Length; i++)
             {
                 Sound sound = _audio.Sound("Typing");
@@ -48,15 +48,22 @@ public class Dialogue : MonoBehaviour
                 {
                     _audio.Sound3D("Typing").Play();
                 }
-                //_dialogueText.text = string.Concat(_dialogueText.text, dialogueSentence.text[i]);
-                //yield return new WaitForSeconds(_textUpdateTime);
+                _dialogueText.text = string.Concat(_dialogueText.text, dialogueSentence.text[i]);
+                yield return new WaitForSeconds(0.1f);
             }
-            //SentenceEnd();
-            _currentDialogueSentence++;
-        }
-        else
-        {
-            //DialogueEnd();
+            float elapsedTime = 0.0f;
+            float waitTime = 1.0f;
+            Color startColor = _dialogueText.color;
+            Color endColor = new Color(1.0f,1.0f,1.0f,0.0f);
+            while (elapsedTime < waitTime)
+            {
+                _dialogueText.color = Color.Lerp(startColor, endColor, elapsedTime);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            yield return new WaitForSeconds(0.5f);
+            NextSentence();
+            _currentDialogueSentenceIndex++;
         }
     }
 }

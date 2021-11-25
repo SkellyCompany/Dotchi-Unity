@@ -22,4 +22,16 @@ public struct DialogueScript
 public class DialogueScriptSO : ScriptableObject
 {
     public List<DialogueScript> dialogueSentences = new List<DialogueScript>();
+
+    public DialogueScript DialogueScript(string dialogueName)
+    {
+        for (int i = 0; i < dialogueSentences.Count; i++)
+        {
+            if (dialogueSentences[i].dialogueName.Equals(dialogueName))
+            {
+                return dialogueSentences[i];
+            }
+        }
+        return dialogueSentences[0];
+    }
 }
