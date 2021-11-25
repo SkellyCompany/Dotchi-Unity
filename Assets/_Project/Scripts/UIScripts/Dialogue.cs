@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueText = default;
     private Audio _audio;
     private DialogueScript _dialogueScript;
+    private Coroutine _writeDialogueCoroutine;
     private int _currentDialogueSentenceIndex;
 
 
@@ -19,14 +20,15 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue(string node)
     {
+        StopDialogue();
         _currentDialogueSentenceIndex = 0;
         _dialogueScript = _dialogueScripts[0].DialogueScript(node);
-        StartCoroutine(WriteDialogueCoroutine());
+        _writeDialogueCoroutine = StartCoroutine(WriteDialogueCoroutine());
     }
 
     private void NextSentence()
 	{
-        StartCoroutine(WriteDialogueCoroutine());
+        _writeDialogueCoroutine = StartCoroutine(WriteDialogueCoroutine());
     }
 
 	IEnumerator WriteDialogueCoroutine()
@@ -64,6 +66,14 @@ public class Dialogue : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             NextSentence();
             _currentDialogueSentenceIndex++;
+        }
+    }
+
+    private void StopDialogue()
+    {
+        if (_writeDialogueCoroutine != null)
+        {
+            StopCoroutine(_writeDialogueCoroutine);
         }
     }
 }

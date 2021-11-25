@@ -1,5 +1,7 @@
 using Demonics.UI;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DebugMenu : BaseMenu
 {
@@ -7,17 +9,32 @@ public class DebugMenu : BaseMenu
 	[SerializeField] private GameObject _timedTaskOptionPrefab = default;
 
 
-	void Update()
+	void Awake()
 	{
-		if (Input.GetKeyDown(KeyCode.K))
+		TimedTasksManager.Instance.taskFinished += LoadTimedTasks;
+		LoadTimedTasks();
+	}
+
+	private void LoadTimedTasks()
+	{
+		if (SceneManager.GetSceneByName("DebugScene").isLoaded)
+   		{
+			foreach (Transform timedTaskOption in _timedTasksContainer)
+			{
+				timedTaskOption.gameObject.SetActive(false);
+			}
+		}
+	
+		List<TimedTask> timedTasks = TimedTasksManager.Instance.TimedTasks;
+		for (int i = 0; i < timedTasks.Count; i++)
 		{
-			AddTimedTask();
+			AddTimedTask(timedTasks[i]);
 		}
 	}
 
-	public void AddTimedTask()
+	public void AddTimedTask(TimedTask timedTask)
 	{
 		TimedTaskOption timedTaskOption = Instantiate(_timedTaskOptionPrefab, _timedTasksContainer).GetComponent<TimedTaskOption>();
-		timedTaskOption.SetTimedTask("egg");
+		timedTaskOption.SetTimedTask(timedTask);
 	}
 }
