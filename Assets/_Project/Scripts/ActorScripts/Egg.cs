@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class Egg : MonoBehaviour
+public class Egg : MonoBehaviour, IInteractable
 {
 	[SerializeField] private Dialogue _dialogue = default;
 	private Animator _animator;
+	private bool _isReadyToHatch;
 
 
 	void Awake()
@@ -20,7 +21,22 @@ public class Egg : MonoBehaviour
 
 	private void ReadyToHatch()
 	{
+		_isReadyToHatch = true;
 		_dialogue.StartDialogue("DotchiIntroduction2");
 		_animator.SetTrigger("StartHatching");
+	}
+
+	private void Hatch()
+	{
+		if (_isReadyToHatch)
+		{
+			_isReadyToHatch = false;
+			Debug.Log("hatch");
+		}
+	}
+
+	public void Interact()
+	{
+		Hatch();
 	}
 }
