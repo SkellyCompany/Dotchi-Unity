@@ -3,6 +3,7 @@ using UnityEngine;
 public class Egg : MonoBehaviour, IInteractable
 {
 	[SerializeField] private Dialogue _dialogue = default;
+	[SerializeField] private Dotchi _dotchi = default;
 	private Animator _animator;
 	private bool _isReadyToHatch;
 
@@ -26,17 +27,23 @@ public class Egg : MonoBehaviour, IInteractable
 		_animator.SetTrigger("StartHatching");
 	}
 
-	private void Hatch()
+	private void StartHatch()
 	{
 		if (_isReadyToHatch)
 		{
 			_isReadyToHatch = false;
-			Debug.Log("hatch");
+			_animator.SetTrigger("Hatch");
 		}
+	}
+
+	public void HatchAnimationEvent()
+	{
+		gameObject.SetActive(false);
+		_dotchi.gameObject.SetActive(true);
 	}
 
 	public void Interact()
 	{
-		Hatch();
+		StartHatch();
 	}
 }
