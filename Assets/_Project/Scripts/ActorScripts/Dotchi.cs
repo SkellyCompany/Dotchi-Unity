@@ -9,6 +9,7 @@ public class Dotchi : MonoBehaviour
 	private int _hunger = 10;
 	private int _happiness = 10;
 	private int _sleepiness = 10;
+	private int _happinessMultiplier = 10;
 	public Vector2 MovementInput { get; set; }
 
 
@@ -55,8 +56,32 @@ public class Dotchi : MonoBehaviour
 	{
 		_happiness--;
 		_dotchiStatsUI.SetHappiness(_happiness);
-		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "LoseHappiness");
-		timedTask.finished += LoseHappiness;
+		if (_happinessMultiplier > 0)
+		{
+			TimedTask timedTaskHappiness = TimedTasksManager.Instance.StartTimedTask(1600, "GainHappiness");
+			timedTaskHappiness.finished += LoseSleepiness;
+		}
+		else
+		{
+			TimedTask timedTaskHappiness = TimedTasksManager.Instance.StartTimedTask(1600, "LoseHappiness");
+			timedTaskHappiness.finished += LoseHappiness;
+		}
+	}
+
+	private void GainHappiness()
+	{
+		_happiness++;
+		_dotchiStatsUI.SetHappiness(_happiness);
+		if (_happinessMultiplier > 0)
+		{
+			TimedTask timedTaskHappiness = TimedTasksManager.Instance.StartTimedTask(1600, "GainHappiness");
+			timedTaskHappiness.finished += LoseSleepiness;
+		}
+		else
+		{
+			TimedTask timedTaskHappiness = TimedTasksManager.Instance.StartTimedTask(1600, "LoseHappiness");
+			timedTaskHappiness.finished += LoseHappiness;
+		}
 	}
 
 	private void LoseSleepiness()
@@ -72,6 +97,7 @@ public class Dotchi : MonoBehaviour
 			TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "LoseSleepiness");
 			timedTask.finished += LoseSleepiness;
 		}
+		CalculateHappinessMultiplier();
 	}
 
 	private void GainSleepiness()
@@ -87,6 +113,7 @@ public class Dotchi : MonoBehaviour
 			TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(1200, "GainSleepiness");
 			timedTask.finished += GainSleepiness;
 		}
+		CalculateHappinessMultiplier();
 	}
 
 	private void Sleep()
@@ -101,6 +128,11 @@ public class Dotchi : MonoBehaviour
 	{
 		_dotchiAnimator.WakeUpAnimation();
 		_rigidbody.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+	}
+
+	private void CalculateHappinessMultiplier()
+	{
+		_happinessMultiplier = (_sleepiness + _hunger) - 10;
 	}
 
 	void OnEnable()

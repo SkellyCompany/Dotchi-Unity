@@ -15,6 +15,7 @@ public class Egg : MonoBehaviour, IInteractable
 
 	public void StartHatching()
 	{
+		float t = PlayerPrefs.GetFloat("Egg", 0);
 		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(180, "Egg");
 		timedTask.finished += ReadyToHatch;
 	}
