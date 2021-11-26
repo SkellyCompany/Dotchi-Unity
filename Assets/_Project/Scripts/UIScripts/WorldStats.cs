@@ -9,8 +9,10 @@ public class WorldStats : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timeText = default;
     [SerializeField] private TextMeshProUGUI _dateText = default;
     [SerializeField] private TextMeshProUGUI _temperatureText = default;
+    public float Light { get; private set; } = 1.0f;
 
-    void Update()
+
+	void Update()
     {
         _timeText.text = DateTime.Now.ToString("HH:mm");
         _dateText.text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -32,6 +34,7 @@ public class WorldStats : MonoBehaviour
 
     public void SetLight(float value)
     {
-        _globalLight.intensity = value;
+        Light = value;
+        _globalLight.intensity = Light;
     }
 }

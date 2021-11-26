@@ -5692,6 +5692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dotchiAnimator: {fileID: 1615543175}
   _dotchiStatsUI: {fileID: 464412331}
+  _worldStats: {fileID: 1396212366}
 --- !u!50 &1902777446
 Rigidbody2D:
   serializedVersion: 4

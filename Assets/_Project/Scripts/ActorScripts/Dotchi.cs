@@ -4,6 +4,7 @@ public class Dotchi : MonoBehaviour
 {
 	[SerializeField] private DotchiAnimator _dotchiAnimator = default;
 	[SerializeField] private DotchiStatsUI _dotchiStatsUI = default;
+	[SerializeField] private WorldStats _worldStats = default;
 	private Rigidbody2D _rigidbody;
 	private int _hunger = 10;
 	private int _happiness = 10;
@@ -27,14 +28,6 @@ public class Dotchi : MonoBehaviour
 	void Update()
 	{
 		Movement();
-		if (Input.GetKeyDown(KeyCode.S))
-		{
-			Sleep();
-		}
-		if (Input.GetKeyDown(KeyCode.W))
-		{
-			WakeUp();
-		}
 	}
 
 	private void Movement()
@@ -57,6 +50,7 @@ public class Dotchi : MonoBehaviour
 		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "LoseHunger");
 		timedTask.finished += LoseHunger;
 	}
+
 	private void LoseHappiness()
 	{
 		_happiness--;
@@ -69,14 +63,38 @@ public class Dotchi : MonoBehaviour
 	{
 		_sleepiness--;
 		_dotchiStatsUI.SetSleepiness(_sleepiness);
-		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "LoseSleepiness");
-		timedTask.finished += LoseSleepiness;
+		if (_sleepiness < 5 && _worldStats.Light <=0.25f || _sleepiness < 3 && _worldStats.Light <= 0.5f)
+		{
+			Sleep();
+		}
+		else
+		{
+			TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "LoseSleepiness");
+			timedTask.finished += LoseSleepiness;
+		}
+	}
+
+	private void GainSleepiness()
+	{
+		_sleepiness++;
+		_dotchiStatsUI.SetSleepiness(_sleepiness);
+		if (_sleepiness == 10)
+		{
+			WakeUp();
+		}
+		else
+		{
+			TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(1200, "GainSleepiness");
+			timedTask.finished += GainSleepiness;
+		}
 	}
 
 	private void Sleep()
 	{
 		_dotchiAnimator.SleepAnimation();
 		_rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(1200, "GainSleepiness");
+		timedTask.finished += GainSleepiness;
 	}
 
 	private void WakeUp()
