@@ -9,15 +9,29 @@ public class DebugMenu : BaseMenu
 {
 	[SerializeField] private Transform _timedTasksContainer = default;
 	[SerializeField] private Button _measuremeantsButton = default;
+	[SerializeField] private Button _statsButton = default;
 	[SerializeField] private GameObject _timedTaskOptionPrefab = default;
 	[SerializeField] private TextMeshProUGUI _temperatureText = default;
 	[SerializeField] private TextMeshProUGUI _lightText = default;
 	[SerializeField] private TextMeshProUGUI _soundText = default;
+	[SerializeField] private TextMeshProUGUI _sleepinessText = default;
+	[SerializeField] private TextMeshProUGUI _happinessText = default;
+	[SerializeField] private TextMeshProUGUI _hungerText = default;
 	private WorldStats _worldStats;
+	private DotchiStatsUI _dotchiStatsUI;
 
 
 	void Awake()
 	{
+		_dotchiStatsUI = FindObjectOfType<DotchiStatsUI>();
+		if (_dotchiStatsUI == null)
+		{
+			_statsButton.gameObject.SetActive(false);
+		}
+		else
+		{
+			_statsButton.gameObject.SetActive(true);
+		}
 		_worldStats = FindObjectOfType<WorldStats>();
 		if (_worldStats == null)
 		{
@@ -33,7 +47,7 @@ public class DebugMenu : BaseMenu
 
 	private void LoadTimedTasks()
 	{
-		if (SceneManager.GetSceneByName("DebugScene").isLoaded)
+		if (SceneManager.GetSceneByName("DebugScene").isLoaded && _timedTasksContainer != null)
    		{
 			foreach (Transform timedTaskOption in _timedTasksContainer)
 			{
@@ -50,6 +64,10 @@ public class DebugMenu : BaseMenu
 
 	public void AddTimedTask(TimedTask timedTask)
 	{
+		if (_timedTasksContainer == null)
+		{
+			Debug.Log("empty");
+		}
 		TimedTaskOption timedTaskOption = Instantiate(_timedTaskOptionPrefab, _timedTasksContainer).GetComponent<TimedTaskOption>();
 		timedTaskOption.SetTimedTask(timedTask);
 	}
@@ -70,5 +88,23 @@ public class DebugMenu : BaseMenu
 	{
 		//_worldStats.SetTemperature(value);
 		_soundText.text = $"Sound: {Mathf.Round(value)}";
+	}
+
+	public void SetSleepiness(float value)
+	{
+		_dotchiStatsUI.SetSleepiness(value);
+		_sleepinessText.text = $"Sleepiness: {value}";
+	}
+
+	public void SetHappiness(float value)
+	{
+		_dotchiStatsUI.SetHappiness(value);
+		_happinessText.text = $"Happiness: {value}";
+	}
+
+	public void SetHunger(float value)
+	{
+		_dotchiStatsUI.SetHunger(value);
+		_hungerText.text = $"Hunger: {value}";
 	}
 }

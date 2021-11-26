@@ -84,4 +84,14 @@ public class Dotchi : MonoBehaviour
 		_dotchiAnimator.WakeUpAnimation();
 		_rigidbody.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
 	}
+
+	void OnEnable()
+	{
+		_dotchiStatsUI.gameObject.SetActive(true);	
+	}
+
+	void OnDisable()
+	{
+		_dotchiStatsUI.gameObject.SetActive(false);
+	}
 }

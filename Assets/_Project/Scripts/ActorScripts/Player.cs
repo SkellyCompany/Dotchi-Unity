@@ -1,8 +1,16 @@
+using Demonics.Sounds;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    void Update()
+	private Audio _audio;
+
+	void Awake()
+	{
+		_audio = GetComponent<Audio>();
+	}
+
+	void Update()
     {
 		if (Input.GetMouseButtonDown(0))
 		{
@@ -12,6 +20,7 @@ public class Player : MonoBehaviour
 			{
 				if (hit.collider.TryGetComponent(out IInteractable interactable))
 				{
+					_audio.Sound("Click").Play();
 					interactable.Interact();
 				}
 			}
