@@ -1,6 +1,7 @@
 using Demonics.Manager;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class TimedTasksManager : Singleton<TimedTasksManager>
 {
@@ -21,8 +22,8 @@ public class TimedTasksManager : Singleton<TimedTasksManager>
 	{
 		for (int i = 0; i < TimedTasks.Count; i++)
 		{
-			TimeSpan dateDifference = DateTime.Now - TimedTasks[i].StartDate;
-			if (dateDifference.Seconds >= TimedTasks[i].Time)
+			float secondsDifference = (float)(DateTime.Now - TimedTasks[i].StartDate).TotalSeconds;
+			if (secondsDifference >= TimedTasks[i].Time)
 			{
 				TimedTasks[i].finished?.Invoke();
 				taskFinished?.Invoke();
