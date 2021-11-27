@@ -7,6 +7,7 @@ public class TimedTask
 	public DateTime StartDate { get; private set; }
 	public float Time { get; private set; }
 	public float RemainingTime { get; set; }
+	public float StoredTime { get; set; }
 	public string Name { get; private set; }
 
 

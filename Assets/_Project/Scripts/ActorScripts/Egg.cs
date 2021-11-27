@@ -6,7 +6,7 @@ public class Egg : MonoBehaviour, IInteractable
 	[SerializeField] private Dotchi _dotchi = default;
 	private Animator _animator;
 	private bool _isReadyToHatch;
-
+	private TimedTask timedTask;
 
 	void Awake()
 	{
@@ -15,8 +15,7 @@ public class Egg : MonoBehaviour, IInteractable
 
 	public void StartHatching()
 	{
-		float t = PlayerPrefs.GetFloat("Egg", 0);
-		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(180, "Egg");
+		timedTask = TimedTasksManager.Instance.StartTimedTask(180, "Egg");
 		timedTask.finished += ReadyToHatch;
 	}
 
