@@ -32,6 +32,7 @@ public class Egg : MonoBehaviour, IInteractable
 		{
 			_isReadyToHatch = false;
 			_animator.SetTrigger("Hatch");
+			StartCoroutine(HttpController.Get("http://localhost:3000/log/1"));
 		}
 	}
 

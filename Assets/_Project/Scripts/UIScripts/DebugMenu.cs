@@ -48,7 +48,7 @@ public class DebugMenu : BaseMenu
 	private void LoadTimedTasks()
 	{
 		if (SceneManager.GetSceneByName("DebugScene").isLoaded && _timedTasksContainer != null)
-   		{
+		{
 			foreach (Transform timedTaskOption in _timedTasksContainer)
 			{
 				timedTaskOption.gameObject.SetActive(false);
