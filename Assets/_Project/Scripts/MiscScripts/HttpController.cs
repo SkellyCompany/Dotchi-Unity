@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -13,10 +12,14 @@ public static class HttpController
         CheckResult(unityWebRequest);
     }
 
-    public static IEnumerator Post(string uri)
+    public static IEnumerator Post(string uri, object model)
     {
-        List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-        UnityWebRequest unityWebRequest = UnityWebRequest.Post(uri, formData);
+        Debug.Log(model);
+        string json = JsonUtility.ToJson(model);
+        Debug.Log(json);
+        UnityWebRequest unityWebRequest = UnityWebRequest.Post(uri, "");
+        unityWebRequest.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(json));
+        unityWebRequest.SetRequestHeader("Content-Type", "application/json");
         yield return unityWebRequest.SendWebRequest();
 
         CheckResult(unityWebRequest);

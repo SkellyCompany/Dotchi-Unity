@@ -32,7 +32,9 @@ public class Egg : MonoBehaviour, IInteractable
 		{
 			_isReadyToHatch = false;
 			_animator.SetTrigger("Hatch");
-			StartCoroutine(HttpController.Get("http://localhost:3000/log/1"));
+			DotchiModel dotchiModel = DotchiCreator.Create();
+			Debug.Log(dotchiModel.dotchi_id);
+			StartCoroutine(HttpController.Post("http://localhost:3000/dotchi/", dotchiModel));
 		}
 	}
 
