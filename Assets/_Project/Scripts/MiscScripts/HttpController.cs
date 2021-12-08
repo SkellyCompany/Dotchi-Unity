@@ -14,9 +14,7 @@ public static class HttpController
 
     public static IEnumerator Post(string uri, object model)
     {
-        Debug.Log(model);
         string json = JsonUtility.ToJson(model);
-        Debug.Log(json);
         UnityWebRequest unityWebRequest = UnityWebRequest.Post(uri, "");
         unityWebRequest.uploadHandler = new UploadHandlerRaw(System.Text.Encoding.UTF8.GetBytes(json));
         unityWebRequest.SetRequestHeader("Content-Type", "application/json");

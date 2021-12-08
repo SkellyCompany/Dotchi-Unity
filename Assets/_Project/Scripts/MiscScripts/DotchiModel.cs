@@ -1,3 +1,7 @@
+using System;
+
+
+[Serializable]
 public struct DotchiModel
 {
 	public string dotchi_id;
@@ -8,6 +12,7 @@ public struct DotchiModel
 
 }
 
+[Serializable]
 public struct DotchiEnvironment
 {
 	public float min_temperature;
@@ -20,6 +25,7 @@ public struct DotchiEnvironment
 	public float max_sound_intensity;
 }
 
+[Serializable]
 public struct DotchiMetrics
 {
 	public float temperature;
@@ -29,11 +35,13 @@ public struct DotchiMetrics
 
 }
 
+[Serializable]
 public struct DotchiState
 {
 	public bool alive;
 }
 
+[Serializable]
 public struct DotchiStatistics
 {
 	public float health;
