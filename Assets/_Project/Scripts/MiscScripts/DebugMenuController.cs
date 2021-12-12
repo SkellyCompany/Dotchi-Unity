@@ -1,15 +1,25 @@
-#if UNITY_EDITOR
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DebugMenuController : MonoBehaviour
 {
+    private float _startTime;
+    private float _endTime;
     private bool _isSceneLoaded;
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetMouseButtonDown(0))
+        {
+            _startTime = Time.time;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            _endTime = Time.time;
+        }
+
+        if (_endTime - _startTime > 0.5f)
         {
             if (!_isSceneLoaded)
             {
@@ -21,7 +31,8 @@ public class DebugMenuController : MonoBehaviour
                 _isSceneLoaded = false;
                 SceneManager.UnloadSceneAsync("DebugScene");
             }
+            _startTime = 0.0f;
+            _endTime = 0.0f;
         }
     }
 }
-#endif

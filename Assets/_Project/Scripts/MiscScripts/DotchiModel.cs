@@ -30,7 +30,6 @@ public struct DotchiMetrics
 	public float humidity;
 	public float light_intensity;
 	public float sound_intensity;
-
 }
 
 [Serializable]
