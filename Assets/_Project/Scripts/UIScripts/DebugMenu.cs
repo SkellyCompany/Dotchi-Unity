@@ -104,7 +104,7 @@ public class DebugMenu : BaseMenu
 
 	public void SetHunger(float value)
 	{
-		_dotchiStatsUI.SetHunger(value);
+		_dotchiStatsUI.SetHealth(value);
 		_hungerText.text = $"Hunger: {value}";
 	}
 }

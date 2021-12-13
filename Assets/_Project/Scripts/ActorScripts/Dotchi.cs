@@ -6,7 +6,7 @@ public class Dotchi : MonoBehaviour
 	[SerializeField] private DotchiStatsUI _dotchiStatsUI = default;
 	[SerializeField] private WorldStats _worldStats = default;
 	private Rigidbody2D _rigidbody;
-	private float _hunger;
+	private float _health;
 	private float _happiness;
 	private float _sleepiness;
 	public Vector2 MovementInput { get; set; }
@@ -34,6 +34,13 @@ public class Dotchi : MonoBehaviour
 			_dotchiAnimator.WalkAnimation();
 		}
 	}
+
+	public void SetHealth(float health)
+	{
+		_health = health;
+		_dotchiStatsUI.SetHealth(_health);
+	}
+
 
 	public void SetHappiness(float happiness)
 	{

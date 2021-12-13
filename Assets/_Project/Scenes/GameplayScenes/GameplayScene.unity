@@ -5297,7 +5297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6c5c2f41937eb45b5b19854101a396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dotchiStatsUI: {fileID: 464412331}
+  _dotchi: {fileID: 1902777445}
 --- !u!4 &1785818250
 Transform:
   m_ObjectHideFlags: 0

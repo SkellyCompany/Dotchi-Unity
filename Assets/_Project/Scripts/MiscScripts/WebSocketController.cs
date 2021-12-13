@@ -15,7 +15,6 @@ public class WebSocketController : MonoBehaviour
 
 		_socket.On(QSocket.EVENT_CONNECT, () => {
 			Debug.Log("WebSocket Connected");
-			_socket.Emit("chat", "test");
 		});
 
 		_socket.On("updatedStatistics/C4:5B:BE:8C:60:F0", data => {
@@ -30,6 +29,7 @@ public class WebSocketController : MonoBehaviour
 		{
 			DotchiStatistics dotchiStatistics = DotchiStatistics.Parse(_object.ToString());
 			_dotchi.SetHappiness(dotchiStatistics.happiness);
+			_dotchi.SetHealth(dotchiStatistics.health);
 			_update = false;
 		}
 	}

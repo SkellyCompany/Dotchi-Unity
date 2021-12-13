@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class DotchiStatsUI : MonoBehaviour
 {
-    [SerializeField] private Slider _hungerSlider = default;
+    [SerializeField] private Slider _healthSlider = default;
     [SerializeField] private Slider _happinessSlider = default;
     [SerializeField] private Slider _sleepinessSlider = default;
     [SerializeField] private Image _hungerImage = default;
@@ -18,14 +18,14 @@ public class DotchiStatsUI : MonoBehaviour
     private Coroutine _sleepIconDangerCoroutine;
 
 
-    public void SetHunger(float value)
+    public void SetHealth(float value)
     {
-        _hungerSlider.value = value;
+        _healthSlider.value = value;
         StopStatIconDangerCoroutine(_hungerIconDangerCoroutine, _hungerImage, _hungerDangerImage);
-        if (value < 5)
-        {
-            _hungerIconDangerCoroutine = StartCoroutine(StatIconDangerCoroutine(_hungerImage, _hungerDangerImage));
-        }
+        //if (value < 5)
+        //{
+        //    _hungerIconDangerCoroutine = StartCoroutine(StatIconDangerCoroutine(_hungerImage, _hungerDangerImage));
+        //}
     }
 
     public void SetHappiness(float value)
