@@ -6,24 +6,15 @@ public class Dotchi : MonoBehaviour
 	[SerializeField] private DotchiStatsUI _dotchiStatsUI = default;
 	[SerializeField] private WorldStats _worldStats = default;
 	private Rigidbody2D _rigidbody;
-	private int _hunger = 10;
-	private int _happiness = 10;
-	private int _sleepiness = 10;
-	private int _happinessMultiplier = 10;
+	private float _hunger;
+	private float _happiness;
+	private float _sleepiness;
 	public Vector2 MovementInput { get; set; }
 
 
 	void Awake()
 	{
 		_rigidbody = GetComponent<Rigidbody2D>();
-	}
-
-	void Start()
-	{
-		TimedTask timedTaskHunger = TimedTasksManager.Instance.StartTimedTask(3600, "LoseHunger");
-		timedTaskHunger.finished += LoseHunger;
-		TimedTask timedTaskSleepiness = TimedTasksManager.Instance.StartTimedTask(1600, "LoseSleepiness");
-		timedTaskSleepiness.finished += LoseSleepiness;
 	}
 
 	void Update()
@@ -44,95 +35,22 @@ public class Dotchi : MonoBehaviour
 		}
 	}
 
-	private void LoseHunger()
+	public void SetHappiness(float happiness)
 	{
-		_hunger--;
-		_dotchiStatsUI.SetHunger(_hunger);
-		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "LoseHunger");
-		timedTask.finished += LoseHunger;
-	}
-
-	private void LoseHappiness()
-	{
-		_happiness--;
+		_happiness = happiness;
 		_dotchiStatsUI.SetHappiness(_happiness);
-		if (_happinessMultiplier > 0)
-		{
-			TimedTask timedTaskHappiness = TimedTasksManager.Instance.StartTimedTask(1600, "GainHappiness");
-			timedTaskHappiness.finished += LoseSleepiness;
-		}
-		else
-		{
-			TimedTask timedTaskHappiness = TimedTasksManager.Instance.StartTimedTask(1600, "LoseHappiness");
-			timedTaskHappiness.finished += LoseHappiness;
-		}
-	}
-
-	private void GainHappiness()
-	{
-		_happiness++;
-		_dotchiStatsUI.SetHappiness(_happiness);
-		if (_happinessMultiplier > 0)
-		{
-			TimedTask timedTaskHappiness = TimedTasksManager.Instance.StartTimedTask(1600, "GainHappiness");
-			timedTaskHappiness.finished += LoseSleepiness;
-		}
-		else
-		{
-			TimedTask timedTaskHappiness = TimedTasksManager.Instance.StartTimedTask(1600, "LoseHappiness");
-			timedTaskHappiness.finished += LoseHappiness;
-		}
-	}
-
-	private void LoseSleepiness()
-	{
-		_sleepiness--;
-		_dotchiStatsUI.SetSleepiness(_sleepiness);
-		if (_sleepiness < 5 && _worldStats.Light <=0.25f || _sleepiness < 3 && _worldStats.Light <= 0.5f)
-		{
-			Sleep();
-		}
-		else
-		{
-			TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(3600, "LoseSleepiness");
-			timedTask.finished += LoseSleepiness;
-		}
-		CalculateHappinessMultiplier();
-	}
-
-	private void GainSleepiness()
-	{
-		_sleepiness++;
-		_dotchiStatsUI.SetSleepiness(_sleepiness);
-		if (_sleepiness == 10)
-		{
-			WakeUp();
-		}
-		else
-		{
-			TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(1200, "GainSleepiness");
-			timedTask.finished += GainSleepiness;
-		}
-		CalculateHappinessMultiplier();
 	}
 
 	private void Sleep()
 	{
 		_dotchiAnimator.SleepAnimation();
 		_rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
-		TimedTask timedTask = TimedTasksManager.Instance.StartTimedTask(1200, "GainSleepiness");
-		timedTask.finished += GainSleepiness;
 	}
 
 	private void WakeUp()
 	{
 		_dotchiAnimator.WakeUpAnimation();
 		_rigidbody.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-	}
-
-	private void CalculateHappinessMultiplier()
-	{
-		_happinessMultiplier = (_sleepiness + _hunger) - 10;
 	}
 
 	void OnEnable()

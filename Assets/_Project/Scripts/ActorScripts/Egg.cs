@@ -32,8 +32,8 @@ public class Egg : MonoBehaviour, IInteractable
 		{
 			_isReadyToHatch = false;
 			_animator.SetTrigger("Hatch");
-			string id = "HARDOCDEDEDED";
-			StartCoroutine(HttpController.Post($"http://localhost:3000/dotchi/{id}", null));
+			string id = "Hard";
+			StartCoroutine(HttpController.Post($"https://dotchiapi.herokuapp.com/dotchi/{id}", null));
 		}
 	}
 

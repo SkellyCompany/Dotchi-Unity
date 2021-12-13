@@ -4,6 +4,9 @@ using UnityEngine.Networking;
 
 public static class HttpController
 {
+    private static readonly string _url = "https://dotchiapi.herokuapp.com";
+
+
     public static IEnumerator Get(string uri)
     {
         UnityWebRequest unityWebRequest = UnityWebRequest.Get(uri);
@@ -47,11 +50,11 @@ public static class HttpController
     {
         if (unityWebRequest.result == UnityWebRequest.Result.ConnectionError)
         {
-            Debug.Log($"Error: {unityWebRequest.error}");
+            Debug.Log($"Http Error");
         }
         else
         {
-            Debug.Log($"Completed:  {unityWebRequest.downloadHandler.text}");
+            Debug.Log($"Http Completed");
         }
     }
 }

@@ -32,10 +32,10 @@ public class DotchiStatsUI : MonoBehaviour
     {
         _happinessSlider.value = value;
         StopStatIconDangerCoroutine(_happinessIconDangerCoroutine, _happinessImage, _happinessDangerImage);
-        if (value < 5)
-        {
-            _happinessIconDangerCoroutine = StartCoroutine(StatIconDangerCoroutine(_happinessImage, _happinessDangerImage));
-        }
+        //if (value < 5)
+        //{
+        //    _happinessIconDangerCoroutine = StartCoroutine(StatIconDangerCoroutine(_happinessImage, _happinessDangerImage));
+        //}
     }
 
     public void SetSleepiness(float value)
@@ -66,8 +66,7 @@ public class DotchiStatsUI : MonoBehaviour
         if (coroutine != null)
         {
             StopCoroutine(coroutine);
-            statIconImage.gameObject.SetActive(true);
-            statIconDangerImage.gameObject.SetActive(false);
+
         }
     }
 }

@@ -1971,7 +1971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &804517419
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2036,14 +2036,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2137021171}
   m_FillRect: {fileID: 1298739048}
   m_HandleRect: {fileID: 2137021170}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
+  m_MaxValue: 100
+  m_WholeNumbers: 0
   m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3371,8 +3371,8 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679090102}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
+  m_MaxValue: 100
+  m_WholeNumbers: 0
   m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3895,14 +3895,14 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 521762070}
   m_FillRect: {fileID: 1022288660}
   m_HandleRect: {fileID: 521762069}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
+  m_MaxValue: 100
+  m_WholeNumbers: 0
   m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5268,6 +5268,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780346817}
   m_CullTransparentMesh: 1
+--- !u!1 &1785818248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1785818250}
+  - component: {fileID: 1785818249}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1785818249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785818248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f6c5c2f41937eb45b5b19854101a396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dotchiStatsUI: {fileID: 464412331}
+--- !u!4 &1785818250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785818248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1844080185
 GameObject:
   m_ObjectHideFlags: 0
