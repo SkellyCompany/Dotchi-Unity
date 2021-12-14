@@ -20,14 +20,14 @@ public class WorldStats : MonoBehaviour
 
 	public void SetTemperature(float value)
 	{
-		float colorValue = (value * 5) / 255.0f;
-		if (value > 20)
+		float colorValue = value / 100;
+		if (value >= 0)
 		{
-			_globalLight.color = new Color(1.0f, colorValue, colorValue);
+			_globalLight.color = Color.HSVToRGB(0.12f, colorValue, 1.0f);
 		}
 		else
 		{
-			_globalLight.color = new Color(colorValue, colorValue, 1.0f);
+			_globalLight.color = Color.HSVToRGB(0.6f, Mathf.Abs(colorValue), 1.0f);
 		}
 		_temperatureText.text = $"{Mathf.Round(value)}°C";
 	}
