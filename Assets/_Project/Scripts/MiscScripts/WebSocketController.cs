@@ -14,7 +14,7 @@ public class WebSocketController : MonoBehaviour
 
 	void Start()
 	{
-		_socket = IO.Socket("http://dotchiapi.heroku.com");
+		_socket = IO.Socket("https://dotchiapi.herokuapp.com");
 
 		_socket.On(QSocket.EVENT_CONNECT, () => {
 			Debug.Log("WebSocket Connected");
