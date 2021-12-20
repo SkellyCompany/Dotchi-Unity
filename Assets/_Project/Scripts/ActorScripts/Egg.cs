@@ -1,3 +1,5 @@
+using System.Net.NetworkInformation;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class Egg : MonoBehaviour, IInteractable
@@ -6,17 +8,20 @@ public class Egg : MonoBehaviour, IInteractable
 	[SerializeField] private Dotchi _dotchi = default;
 	private Animator _animator;
 	private bool _isReadyToHatch;
-	private TimedTask timedTask;
+	private TimedTask _timedTask;
+
+	public string MacAddress { get; private set; }
 
 	void Awake()
 	{
 		_animator = GetComponent<Animator>();
+		MacAddress = GetMacAddress();
 	}
 
 	public void StartHatching()
 	{
-		timedTask = TimedTasksManager.Instance.StartTimedTask(180, "Egg");
-		timedTask.finished += ReadyToHatch;
+		_timedTask = TimedTasksManager.Instance.StartTimedTask(180, "Egg");
+		_timedTask.finished += ReadyToHatch;
 	}
 
 	private void ReadyToHatch()
@@ -47,5 +52,30 @@ public class Egg : MonoBehaviour, IInteractable
 	public void Interact()
 	{
 		StartHatch();
+	}
+
+	private string GetMacAddress()
+	{
+		string physicalAddress = "";
+		NetworkInterface[] nice = NetworkInterface.GetAllNetworkInterfaces();
+		foreach (NetworkInterface adaper in nice)
+		{
+			Debug.Log(adaper.Description);
+			if (adaper.Description == "en0")
+			{
+				physicalAddress = adaper.GetPhysicalAddress().ToString();
+				break;
+			}
+			else
+			{
+				physicalAddress = adaper.GetPhysicalAddress().ToString();
+				if (physicalAddress != "")
+				{
+					break;
+				};
+			}
+		}
+		physicalAddress = Regex.Replace(physicalAddress, ".{2}", "$0:");
+		return physicalAddress.Remove(physicalAddress.Length - 1); ;
 	}
 }

@@ -17,6 +17,7 @@ public class DebugMenu : BaseMenu
 	[SerializeField] private TextMeshProUGUI _sleepinessText = default;
 	[SerializeField] private TextMeshProUGUI _happinessText = default;
 	[SerializeField] private TextMeshProUGUI _hungerText = default;
+	[SerializeField] private TextMeshProUGUI _macAddressText = default;
 	private WorldStats _worldStats;
 	private DotchiStatsUI _dotchiStatsUI;
 
@@ -40,6 +41,11 @@ public class DebugMenu : BaseMenu
 		else
 		{
 			_measuremeantsButton.gameObject.SetActive(true);
+		}
+		Egg egg = FindObjectOfType<Egg>();
+		if (egg != null)
+		{
+			_macAddressText.text = egg.MacAddress;
 		}
 		TimedTasksManager.Instance.taskFinished += LoadTimedTasks;
 		LoadTimedTasks();
