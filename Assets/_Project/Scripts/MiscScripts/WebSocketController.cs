@@ -12,6 +12,8 @@ public class WebSocketController : MonoBehaviour
 	private bool _updateMetrics;
 
 
+	public string DotchiId { get; private set; }
+
 	void Start()
 	{
 		_socket = IO.Socket("https://dotchiapi.herokuapp.com");
@@ -19,14 +21,19 @@ public class WebSocketController : MonoBehaviour
 		_socket.On(QSocket.EVENT_CONNECT, () => {
 			Debug.Log("WebSocket Connected");
 		});
+	}
 
-		_socket.On("updatedStatistics/C4:5B:BE:8C:60:F0", data => {
+	public void StartListening(string dotchiId)
+	{
+		DotchiId = dotchiId;
+
+		_socket.On($"updatedStatistics/{DotchiId}", data => {
 			Debug.Log("WebSocket updated statistics");
 			_statisticsObject = data;
 			_updateStatistics = true;
 		});
 
-		_socket.On("updatedMetrics/C4:5B:BE:8C:60:F0", data => {
+		_socket.On($"updatedMetrics/{DotchiId}", data => {
 			Debug.Log("WebSocket updated metrics");
 			_metricsObject = data;
 			_updateMetrics = true;

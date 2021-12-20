@@ -6,16 +6,17 @@ public class Egg : MonoBehaviour, IInteractable
 {
 	[SerializeField] private Dialogue _dialogue = default;
 	[SerializeField] private Dotchi _dotchi = default;
+	[SerializeField] private WebSocketController _webSocketController = default;
 	private Animator _animator;
 	private bool _isReadyToHatch;
 	private TimedTask _timedTask;
 
-	public string MacAddress { get; private set; }
+	public string MotherId { get; private set; }
 
 	void Awake()
 	{
 		_animator = GetComponent<Animator>();
-		MacAddress = GetMacAddress();
+		MotherId = GetMacAddress();
 	}
 
 	public void StartHatching()
@@ -37,8 +38,10 @@ public class Egg : MonoBehaviour, IInteractable
 		{
 			_isReadyToHatch = false;
 			_animator.SetTrigger("Hatch");
-			string id = "C4:5B:BE:8C:60:F0";
-			//StartCoroutine(HttpController.Post($"https://dotchiapi.herokuapp.com/dotchi/{id}", null));
+			StartCoroutine(HttpController.Get($"https://dotchiapi.herokuapp.com/dotchi/mother/{MotherId}", a =>
+			{
+				_webSocketController.StartListening(a.dotchi_id);
+			}));
 		}
 	}
 

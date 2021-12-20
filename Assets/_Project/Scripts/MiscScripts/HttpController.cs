@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -7,12 +8,13 @@ public static class HttpController
     private static readonly string _url = "https://dotchiapi.herokuapp.com";
 
 
-    public static IEnumerator Get(string uri)
+    public static IEnumerator Get(string uri, Action<DotchiModel> action)
     {
         UnityWebRequest unityWebRequest = UnityWebRequest.Get(uri);
         yield return unityWebRequest.SendWebRequest();
-
         CheckResult(unityWebRequest);
+        action(JsonUtility.FromJson<DotchiModel>(unityWebRequest.downloadHandler.text));
+        yield return action;
     }
 
     public static IEnumerator Post(string uri, object model)

@@ -45,7 +45,7 @@ public class DebugMenu : BaseMenu
 		Egg egg = FindObjectOfType<Egg>();
 		if (egg != null)
 		{
-			_macAddressText.text = egg.MacAddress;
+			_macAddressText.text = egg.MotherId;
 		}
 		TimedTasksManager.Instance.taskFinished += LoadTimedTasks;
 		LoadTimedTasks();
